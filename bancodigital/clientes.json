@@ -1,0 +1,14 @@
+[
+  {
+    "cpf": "999.999.999-34",
+    "nome": "pedro",
+    "dataNascimento": "Jun 4, 1999, 12:00:00 AM",
+    "endereco": "rua"
+  },
+  {
+    "cpf": "444.444.444-55",
+    "nome": "jose",
+    "dataNascimento": "Oct 10, 2002, 12:00:00 AM",
+    "endereco": "rua"
+  }
+]
