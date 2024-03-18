@@ -1,6 +1,8 @@
 package view;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Cliente {
 	
@@ -8,6 +10,7 @@ public class Cliente {
 	private String nome;
 	private Date dataNascimento;
 	private String endereco;
+	private List<Conta> contas = new ArrayList<>();
 	
 	public Cliente(String cpf, String nome, Date dataNascimento, String endereco) {
 		this.cpf = cpf;
@@ -46,5 +49,13 @@ public class Cliente {
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}
+	
+	public List<Conta> getContas() {
+		return contas;
+	}
+
+	public void setContas(List<Conta> contas) {
+		this.contas = contas;
 	}
 }

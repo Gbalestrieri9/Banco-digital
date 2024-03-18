@@ -1,12 +1,12 @@
 package br.com.bancodigital;
 
-import view.Conta;
+import view.aberturaDeConta;
 
 public class main {
   public static void main(String[] args) {
-	  Conta conta = new Conta();
+	  aberturaDeConta conta = new aberturaDeConta();
 	  
-	  conta.cadastrar();
+	  conta.cadastrarClienteEConta();
     
   }
 }
