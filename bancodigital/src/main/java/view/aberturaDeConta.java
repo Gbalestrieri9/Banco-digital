@@ -57,17 +57,37 @@ public class aberturaDeConta {
         System.out.println("Senha:");
         String senha = input.next();
         
-        System.out.println("Qual categoria você quer? (Simples, Premium)");
+        System.out.println("Qual categoria você quer? (Simples,Super,Premium)");
         String categoriaConta = input.next();
         
         Conta novaConta = new Conta(tipoConta, senha, categoriaConta);
         novoCliente.getContas().add(novaConta);
 
+        
+        System.out.println("Qual deseja um cartão de debito? (sim ou não)");
+        String contaCorrente = input.next();
+        
+        double saldoInicial = 0;
+        
+        ContaCorrente novaContaCorrente = new ContaCorrente(saldoInicial,verificarCartaoDeDebito(contaCorrente));
+        novoCliente.getContaCorrente().add(novaContaCorrente);
+        
         clientes.add(novoCliente);
         
         salvarClientes();
         
         System.out.println("Cliente e Conta cadastrados com sucesso.");
+    }
+    
+    private boolean verificarCartaoDeDebito(String opcaoEscolhida ) {
+    	if (opcaoEscolhida.equalsIgnoreCase("sim")) {
+            return true;
+        } else if (opcaoEscolhida.equalsIgnoreCase("não")) {
+            return false;
+        } else {
+            System.out.println("Entrada inválida. Por favor, digite 'sim' ou 'não'.");
+            return false;
+        }
     }
 
     private void salvarClientes() {

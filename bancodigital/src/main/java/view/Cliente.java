@@ -10,7 +10,8 @@ public class Cliente {
 	private String nome;
 	private Date dataNascimento;
 	private String endereco;
-	private List<Conta> contas = new ArrayList<>();
+	private List<Conta> conta = new ArrayList<>();
+	private List<ContaCorrente> contaCorrente = new ArrayList<>();
 	
 	public Cliente(String cpf, String nome, Date dataNascimento, String endereco) {
 		this.cpf = cpf;
@@ -52,10 +53,18 @@ public class Cliente {
 	}
 	
 	public List<Conta> getContas() {
-		return contas;
+		return conta;
 	}
 
-	public void setContas(List<Conta> contas) {
-		this.contas = contas;
+	public void setContas(List<Conta> conta) {
+		this.conta = conta;
+	}
+	
+	public List<ContaCorrente> getContaCorrente() {
+		return contaCorrente;
+	}
+
+	public void setContaCorrente(List<ContaCorrente> contaCorrente) {
+		this.contaCorrente = contaCorrente;
 	}
 }

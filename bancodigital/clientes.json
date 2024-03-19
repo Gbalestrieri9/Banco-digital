@@ -1,52 +1,26 @@
 [
   {
-    "cpf": "999.999.999-34",
-    "nome": "pedro",
-    "dataNascimento": "Jun 4, 1999, 12:00:00 AM",
-    "endereco": "rua"
+    "cpf": "333.333.333-98",
+    "nome": "gabril",
+    "dataNascimento": "Nov 11, 2001, 12:00:00 AM",
+    "endereco": "rua jsoe"
   },
   {
-    "cpf": "444.444.444-55",
-    "nome": "jose",
-    "dataNascimento": "Oct 10, 2002, 12:00:00 AM",
-    "endereco": "rua"
-  },
-  {
-    "cpf": "123.456.678-98",
-    "nome": "gabriel",
-    "dataNascimento": "Oct 20, 1998, 12:00:00 AM",
-    "endereco": "rua jose mourinho",
-    "contas": [
+    "cpf": "444.444.444-98",
+    "nome": "felipe",
+    "dataNascimento": "Feb 22, 1999, 12:00:00 AM",
+    "endereco": "rua augusto",
+    "conta": [
       {
         "tipoConta": "corrente",
-        "senha": "senha678",
+        "senha": "senha321",
         "categoriaConta": "simples"
       }
-    ]
-  },
-  {
-    "cpf": "00100200345",
-    "nome": "daniss",
-    "dataNascimento": "May 12, 9, 12:00:00 AM",
-    "endereco": "rua dos bobos 0",
-    "contas": [
+    ],
+    "contaCorrente": [
       {
-        "tipoConta": "corrente",
-        "senha": "senha01",
-        "categoriaConta": "simples"
-      }
-    ]
-  },
-  {
-    "cpf": "00200100345",
-    "nome": "dan",
-    "dataNascimento": "Mar 22, 17, 12:00:00 AM",
-    "endereco": "rua dos bobos 1",
-    "contas": [
-      {
-        "tipoConta": "corrente",
-        "senha": "senha02",
-        "categoriaConta": "simples"
+        "saldo": 0.0,
+        "cartaoDebito": true
       }
     ]
   }
