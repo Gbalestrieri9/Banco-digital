@@ -23,5 +23,31 @@
         "categoriaConta": "simples"
       }
     ]
+  },
+  {
+    "cpf": "00100200345",
+    "nome": "daniss",
+    "dataNascimento": "May 12, 9, 12:00:00 AM",
+    "endereco": "rua dos bobos 0",
+    "contas": [
+      {
+        "tipoConta": "corrente",
+        "senha": "senha01",
+        "categoriaConta": "simples"
+      }
+    ]
+  },
+  {
+    "cpf": "00200100345",
+    "nome": "dan",
+    "dataNascimento": "Mar 22, 17, 12:00:00 AM",
+    "endereco": "rua dos bobos 1",
+    "contas": [
+      {
+        "tipoConta": "corrente",
+        "senha": "senha02",
+        "categoriaConta": "simples"
+      }
+    ]
   }
 ]
