@@ -13,6 +13,8 @@ public class menuDeControle {
                 aberturaDeConta.cadastrarClienteEConta();
                 break;
             case 2:
+            	aberturaDeConta.fazerLogin("111.111.111-11","senha123");
+            	
                 break;
             case 3:
                 break;

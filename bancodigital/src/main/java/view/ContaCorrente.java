@@ -29,14 +29,6 @@ public class ContaCorrente {
 		this.cartaoDebito = cartaoDebito;
 	}
 	
-	public void retiradaSaldo(double valor) {
-        this.saldo -= this.setSaldo(valor);
-    }
-	
-	public void aumentarSaldo(double valor) {
-        this.saldo += this.setSaldo(valor);
-    }
-
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -52,4 +44,12 @@ public class ContaCorrente {
 	public void setLimiteTransacoes(int limiteTransacoes) {
 		this.limiteTransacoes = limiteTransacoes;
 	}
+	
+	public void retiradaSaldo(double valor) {
+        this.saldo -= this.setSaldo(valor);
+    }
+	
+	public void aumentarSaldo(double valor) {
+        this.saldo += this.setSaldo(valor);
+    }
 }

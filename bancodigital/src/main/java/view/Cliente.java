@@ -53,11 +53,11 @@ public class Cliente {
 		this.endereco = endereco;
 	}
 	
-	public List<Conta> getContas() {
+	public List<Conta> getConta() {
 		return conta;
 	}
 
-	public void setContas(List<Conta> conta) {
+	public void setConta(List<Conta> conta) {
 		this.conta = conta;
 	}
 	

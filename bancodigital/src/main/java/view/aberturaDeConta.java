@@ -58,7 +58,7 @@ public class aberturaDeConta {
         String senha = input.next();
         
         System.out.println("Qual categoria você quer? "
-                +"|------------------------------------Simples----------------------------------------------|"
+                +"|------------------------------------Comum----------------------------------------------|"
               +  "| taxa de manutençäo mensal:R$12,00                                                       |"
               +  "| taxa de rendimento anual:0,5%                                                           |"
               +  "| limite de crédito: 1 mil                                                                |"
@@ -82,16 +82,16 @@ public class aberturaDeConta {
         String categoriaConta = input.next(); 
         
         Conta novaConta = new Conta(tipoConta, senha, categoriaConta);
-        novoCliente.getContas().add(novaConta);
+        novoCliente.getConta().add(novaConta);
 
         
         System.out.println("Você deseja um cartão de debito? (sim ou não)");
-        String contaCorrente = input.next();
+        String respostarCartaoDeDebito = input.next();
         
         double saldoInicial = 0;
         int limiteTransacoesDebito = 5;
         
-        ContaCorrente novaContaCorrente = new ContaCorrente(saldoInicial,verificarCartaoDeDebito(contaCorrente),limiteTransacoesDebito );
+        ContaCorrente novaContaCorrente = new ContaCorrente(saldoInicial,vereficaRespostaCartao(respostarCartaoDeDebito),limiteTransacoesDebito );
         novoCliente.getContaCorrente().add(novaContaCorrente);
         
         
@@ -100,7 +100,7 @@ public class aberturaDeConta {
         
         double limiteCartaoCreditoInicial = calcularLimiteCartao(categoriaConta);
         
-        CartaoDeCredito novoCartaoCredito = new CartaoDeCredito(limiteCartaoCreditoInicial);
+        CartaoDeCredito novoCartaoCredito = new CartaoDeCredito(limiteCartaoCreditoInicial,vereficaRespostaCartao(cartaoCredito));
         novoCliente.getCartaoCredito().add(novoCartaoCredito);
         
         clientes.add(novoCliente);
@@ -129,7 +129,7 @@ public class aberturaDeConta {
         }
     }
     
-    private boolean verificarCartaoDeDebito(String opcaoEscolhida ) {
+    private boolean vereficaRespostaCartao(String opcaoEscolhida ) {
     	if (opcaoEscolhida.equalsIgnoreCase("sim")) {
             return true;
         } else if (opcaoEscolhida.equalsIgnoreCase("não")) {
@@ -157,13 +157,14 @@ public class aberturaDeConta {
         }
     }
 
-//    public boolean fazerLogin(String cpf, String senha) {
-//        for (Cliente cliente : clientes) {
-//            if (cliente.getCpf().equals(cpf) && cliente.getSenha().equals(senha)) {
-//                return true; // Login bem-sucedido
-//            }
-//        }
-//        return false; // Login falhou
-//    }
+    public Cliente fazerLogin(String cpf, String senha) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getCpf().equals(cpf) && cliente.getConta().get(0).getSenha().equals(senha)) {
+            	System.out.println("Seja Bem-vindo " + cliente.getNome() );
+            	return cliente; // criar um variavel para depois usar ( listar saldo...)
+            }
+        }
+        return null; // Login falhou
+    }
 	
 }
