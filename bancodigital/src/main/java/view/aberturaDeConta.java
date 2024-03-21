@@ -57,26 +57,76 @@ public class aberturaDeConta {
         System.out.println("Senha:");
         String senha = input.next();
         
-        System.out.println("Qual categoria você quer? (Simples,Super,Premium)");
-        String categoriaConta = input.next();
+        System.out.println("Qual categoria você quer? "
+                +"|------------------------------------Simples----------------------------------------------|"
+              +  "| taxa de manutençäo mensal:R$12,00                                                       |"
+              +  "| taxa de rendimento anual:0,5%                                                           |"
+              +  "| limite de crédito: 1 mil                                                                |"
+              +  "| seguro viagem: opicional:R$50,00 por mes                                                |"
+              +  "| seguro de fraude: cobertura automatica para todos os cartoes, aólice base de R$5.000,00 |"
+              +  "|-----------------------------------------------------------------------------------------|"
+               + "|------------------------------------Super------------------------------------------------|"
+               + "| taxa de manutençäo mensal:R$8,00                                                        |"
+               + "| taxa de rendimento anual:0,7%                                                           |"
+               + "| limite de crédito: 5 mil                                                                |"
+               + "| seguro viagem: opicional:R$50,00 por mes                                                |"
+               + "| seguro de fraude: cobertura automatica para todos os cartoes, aólice base de R$5.000,00 |"
+               + "|-----------------------------------------------------------------------------------------|"
+               + "|-----------------------------------Premium-----------------------------------------------|"
+               + "| taxa de manutençäo mensal:insento                                                       |"
+               + "| taxa de rendimento anual:0,9%                                                           |"
+               + "| limite de crédito: 10 mil                                                               |"
+               + "| seguro viagem: opicional:GRATUITO                                                       |"
+               + "| seguro de fraude: cobertura automatica para todos os cartoes, aólice base de R$5.000,00 |"
+               + "|-----------------------------------------------------------------------------------------|");
+        String categoriaConta = input.next(); 
         
         Conta novaConta = new Conta(tipoConta, senha, categoriaConta);
         novoCliente.getContas().add(novaConta);
 
         
-        System.out.println("Qual deseja um cartão de debito? (sim ou não)");
+        System.out.println("Você deseja um cartão de debito? (sim ou não)");
         String contaCorrente = input.next();
         
         double saldoInicial = 0;
+        int limiteTransacoesDebito = 5;
         
-        ContaCorrente novaContaCorrente = new ContaCorrente(saldoInicial,verificarCartaoDeDebito(contaCorrente));
+        ContaCorrente novaContaCorrente = new ContaCorrente(saldoInicial,verificarCartaoDeDebito(contaCorrente),limiteTransacoesDebito );
         novoCliente.getContaCorrente().add(novaContaCorrente);
+        
+        
+        System.out.println("Você deseja um cartão de credito? (sim ou não)");
+        String cartaoCredito = input.next();
+        
+        double limiteCartaoCreditoInicial = calcularLimiteCartao(categoriaConta);
+        
+        CartaoDeCredito novoCartaoCredito = new CartaoDeCredito(limiteCartaoCreditoInicial);
+        novoCliente.getCartaoCredito().add(novoCartaoCredito);
         
         clientes.add(novoCliente);
         
         salvarClientes();
         
         System.out.println("Cliente e Conta cadastrados com sucesso.");
+    }
+    
+    public static Double calcularLimiteCartao(String segmento) {
+        if (segmento == null || segmento.isEmpty()) {
+            throw new IllegalArgumentException("Segmento inválido");
+        }
+
+        Double valorBase = 1000.0; 
+
+        switch (segmento.toLowerCase()) {
+            case "comum":
+                return valorBase * 1.0;
+            case "super":
+                return valorBase * 5.0;
+            case "premium":
+                return valorBase * 10.0;
+            default:
+                throw new IllegalArgumentException("Segmento inválido: " + segmento);
+        }
     }
     
     private boolean verificarCartaoDeDebito(String opcaoEscolhida ) {

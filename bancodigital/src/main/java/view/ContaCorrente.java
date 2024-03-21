@@ -5,10 +5,12 @@ public class ContaCorrente {
 	private double saldo = 0;
 	private boolean cartaoDebito;
 	private Cliente cliente;
+	private int limiteTransacoes = 5;
 	
-	public ContaCorrente(double saldo, boolean cartaoDebito) {
+	public ContaCorrente(double saldo, boolean cartaoDebito,int limiteTransacoes) {
 		this.saldo = saldo;
 		this.cartaoDebito = cartaoDebito;
+		this.limiteTransacoes = limiteTransacoes;
 	}
 
 	public double getSaldo() {
@@ -41,5 +43,13 @@ public class ContaCorrente {
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+
+	public int getLimiteTransacoes() {
+		return limiteTransacoes;
+	}
+
+	public void setLimiteTransacoes(int limiteTransacoes) {
+		this.limiteTransacoes = limiteTransacoes;
 	}
 }
