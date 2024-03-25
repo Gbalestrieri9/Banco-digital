@@ -111,4 +111,8 @@ public class Conta {
             System.out.println("Tipo de conta não reconhecido.");
         }
     }
+	
+	public void ativarOuDesativarConta(boolean ativarDesativar) {
+		setContaAtivada(ativarDesativar);
+	}
 }

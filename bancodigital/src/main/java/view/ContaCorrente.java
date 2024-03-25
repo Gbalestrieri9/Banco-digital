@@ -52,4 +52,14 @@ public class ContaCorrente {
 	public void aumentarSaldo(double valor) {
         this.saldo += this.setSaldo(valor);
     }
+	
+	public boolean TransferirViaPix(double valor, ContaCorrente contaDestinatario) {
+	    if (this.saldo >= valor) {
+	        this.saldo -= valor; 
+	        contaDestinatario.saldo += valor; 
+	        return true; 
+	    } else {
+	        return false;
+	    }
+	}
 }

@@ -13,6 +13,7 @@ public class Cliente {
 	private List<Conta> conta = new ArrayList<>();
 	private List<ContaCorrente> contaCorrente = new ArrayList<>();
 	private List<CartaoDeCredito> cartaoCredito = new ArrayList<>();
+	private ProdutosSeguro produtosSeguros = new ProdutosSeguro("");
 	
 	public Cliente(String cpf, String nome, Date dataNascimento, String endereco) {
 		this.cpf = cpf;
@@ -75,5 +76,13 @@ public class Cliente {
 
 	public void setCartaoCredito(List<CartaoDeCredito> cartaoCredito) {
 		this.cartaoCredito = cartaoCredito;
+	}
+
+	public ProdutosSeguro getProdutosSeguros() {
+		return produtosSeguros;
+	}
+
+	public void setProdutosSeguros(ProdutosSeguro produtosSeguros) {
+		this.produtosSeguros = produtosSeguros;
 	}
 }
