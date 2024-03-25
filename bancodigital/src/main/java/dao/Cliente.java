@@ -1,8 +1,11 @@
-package view;
+package dao;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import dtos.CartaoDeCredito;
+import dtos.ProdutosSeguro;
 
 public class Cliente {
 	

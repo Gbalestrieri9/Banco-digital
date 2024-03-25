@@ -1,4 +1,4 @@
-package view;
+package dtos;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,6 +17,10 @@ import java.util.regex.Pattern;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+
+import dao.Cliente;
+import dao.Conta;
+import dao.ContaCorrente;
 
 public class AberturaDeConta {
     private Scanner input = new Scanner(System.in);

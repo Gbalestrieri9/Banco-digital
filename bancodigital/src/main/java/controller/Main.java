@@ -1,8 +1,6 @@
 package controller;
 import java.util.Scanner;
 
-import view.menuDeControle;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -26,7 +24,7 @@ public class Main {
                         + "7.Altere seu limite de trasações\n"
                         + "8.Ative/desative sua conta\n"
                         + "9.Compre \n"
-                        + ".Sair \n");
+                        + "10.Sair \n");
                 
                 System.out.println("Digite a numeração que deseja selecionar acima:");
                 acaoDigitada = input.nextInt();

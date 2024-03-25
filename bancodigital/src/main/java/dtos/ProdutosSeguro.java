@@ -1,4 +1,4 @@
-package view;
+package dtos;
 
 import java.util.Date;
 import java.util.Random;

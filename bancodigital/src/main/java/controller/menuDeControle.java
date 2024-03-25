@@ -1,7 +1,12 @@
-package view;
+package controller;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;
+
+import dao.Cliente;
+import dao.Conta;
+import dao.ContaCorrente;
+import dtos.AberturaDeConta;
 
 public class menuDeControle {
 	private AberturaDeConta aberturaDeConta;

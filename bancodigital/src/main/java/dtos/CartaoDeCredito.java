@@ -1,4 +1,6 @@
-package view;
+package dtos;
+
+import dao.Cliente;
 
 public class CartaoDeCredito {
 

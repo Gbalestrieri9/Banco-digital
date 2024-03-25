@@ -1,4 +1,4 @@
-package view;
+package dao;
 
 import java.util.Date;
 
