@@ -79,9 +79,8 @@ public class ProdutosSeguro {
         Random rand = new Random();
         StringBuilder sb = new StringBuilder();
 
-        // Gera os dígitos aleatórios
         for (int i = 0; i < NUM_DIGITOS; i++) {
-            int digito = rand.nextInt(10); // Gera um número aleatório entre 0 e 9
+            int digito = rand.nextInt(10);
             sb.append(digito);
         }
 
