@@ -112,21 +112,62 @@ public class menuDeControle {
 
 		System.out.println("Limite de transações alterado com sucesso!");
 	}
-	
+
 	public void EstadoConta(Conta conta) {
-        boolean estadoAtual = conta.isContaAtivada();
-        conta.ativarOuDesativarConta(!estadoAtual);
-        
-        if (!estadoAtual) {
-            System.out.println("A conta foi ativada.");
-        } else {
-            System.out.println("A conta foi desativada.");
-        }
-    }
-	
+		boolean estadoAtual = conta.isContaAtivada();
+		conta.ativarOuDesativarConta(!estadoAtual);
+
+		if (!estadoAtual) {
+			System.out.println("A conta foi ativada.");
+		} else {
+			System.out.println("A conta foi desativada.");
+		}
+	}
+
 	public void realizarPagamento() {
-		//fazer um metodo que vai escolher credito ou debito
-		//deposito (fazer o contrario - retirar saldo) 
+		System.out.println("Escolha o método de pagamento:");
+		System.out.println("1: Débito");
+		System.out.println("2: Crédito");
+		int metodoPagamento = input.nextInt();
+
+		if (metodoPagamento != 1 && metodoPagamento != 2) {
+			System.out.println("Escolha inválida.");
+			return;
+		}
+
+		System.out.println("Digite o valor da compra:");
+		double compraCliente = input.nextDouble();
+
+		if (metodoPagamento == 1) {
+			if (!clienteLogado.getContaCorrente().get(0).isCartaoDebito()) {
+				System.out.println("Você não possui um cartão de débito vinculado.");
+				return;
+			}
+			if (clienteLogado.getContaCorrente().get(0).getSaldo() < compraCliente) {
+				System.out.println("Saldo insuficiente para a compra.");
+				return;
+			}
+			clienteLogado.getContaCorrente().get(0).retiradaSaldo(compraCliente);
+		} else {
+			System.out.println("Pagamento por crédito selecionado.");
+			
+			double limiteDoCliente = clienteLogado.getCartaoCredito().get(0).getLimiteCartaoCredito();
+			clienteLogado.getCartaoCredito().get(0).setLimiteCartaoCredito(limiteDoCliente - compraCliente);
+			
+			double faturaDoCliente = clienteLogado.getCartaoCredito().get(0).getFatura();
+			clienteLogado.getCartaoCredito().get(0).setFatura(compraCliente + faturaDoCliente);
+		}
+
+		if (metodoPagamento == 1) {
+			double saldoAtual = clienteLogado.getContaCorrente().get(0).getSaldo();
+			System.out.println("Pagamento realizado. Saldo atual: R$" + saldoAtual);
+		} else {
+			System.out.println("Pagamento por crédito realizado com sucesso.");
+		}
+	}
+	
+	public void taxaDeUtilizacaoDeLimite() {
+		
 	}
 
 	public void sairSalvar() {
@@ -161,6 +202,9 @@ public class menuDeControle {
 			EstadoConta(clienteLogado.getConta().get(0));
 			break;
 		case 9:
+			realizarPagamento();
+			break;
+		case 10:
 			sairSalvar();
 			break;
 		default:

@@ -1,4 +1,4 @@
-package br.com.bancodigital;
+package controller;
 import java.util.Scanner;
 
 import view.menuDeControle;
@@ -25,6 +25,7 @@ public class Main {
                         + "6.Alterar senha\n"
                         + "7.Altere seu limite de trasações\n"
                         + "8.Ative/desative sua conta\n"
+                        + "9.Compre \n"
                         + ".Sair \n");
                 
                 System.out.println("Digite a numeração que deseja selecionar acima:");
@@ -32,7 +33,7 @@ public class Main {
                 input.nextLine();
                 System.out.println("\n");
                 
-                if(acaoDigitada == 9) {
+                if(acaoDigitada == 10) {
                 	menu.controle(acaoDigitada);
                     executando = false;
                     input.close();
@@ -41,7 +42,7 @@ public class Main {
                 	menu.controle(acaoDigitada);
                 }
                 else {
-                	if((acaoDigitada>= 3 && acaoDigitada<=8) && menu.clienteLogado != null) {
+                	if((acaoDigitada>= 3 && acaoDigitada<=9) && menu.clienteLogado != null) {
                 		menu.controle(acaoDigitada);
                 	}else {
                 		menu.controle(2);
@@ -54,6 +55,3 @@ public class Main {
         }   
     }
 }
-
-    
-

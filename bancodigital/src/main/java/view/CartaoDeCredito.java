@@ -5,12 +5,17 @@ public class CartaoDeCredito {
 	private double limiteCartaoCredito;
 	private boolean clienteTemCartaoCredito;
 	private Cliente cliente;
+	private double fatura;
+	private double limiteContratado;
 	
 	public CartaoDeCredito(double limiteCartaoCredito, boolean clienteTemCartaoCredito) {
 		this.limiteCartaoCredito = limiteCartaoCredito;
+		this.limiteContratado = limiteCartaoCredito;
 		this.clienteTemCartaoCredito = clienteTemCartaoCredito;
+		this.fatura = 0;
 		if(!this.clienteTemCartaoCredito) {
 			clienteNaoOptouPorCartaoCredito();
+			
 		}
 	}
 
@@ -40,5 +45,21 @@ public class CartaoDeCredito {
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+
+	public double getFatura() {
+		return fatura;
+	}
+
+	public void setFatura(double fatura) {
+		this.fatura = fatura;
+	}
+
+	public double getLimiteContratado() {
+		return limiteContratado;
+	}
+
+	public void setLimiteContratado(double limiteContratado) {
+		this.limiteContratado = limiteContratado;
 	}
 }
