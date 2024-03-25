@@ -1,5 +1,6 @@
 package view;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class menuDeControle {
@@ -21,10 +22,24 @@ public class menuDeControle {
 		Cliente clienteLogin = aberturaDeConta.fazerLogin(cpf, senha);
 		if (clienteLogin != null) {
 			clienteLogado = clienteLogin;
-			System.out.println("Login realizado com sucesso.");
+			
+			vereficarContaAtiva();
 		} else {
-			System.out.println("Login falhou. Tente novamente.");
+			System.out.println("Credenciais invalidas. Tente novamente.");
 		}
+	}
+
+	private void vereficarContaAtiva() {
+		boolean situacaoConta = clienteLogado.getConta().get(0).isContaAtivada();
+		
+		if(situacaoConta) {
+			visualizarSaldo();
+			visualizarFaturaCartaoCredito();
+		}else {
+			System.out.println("Aviso: Esta conta está atualmente desativada. Entre em contato com o suporte para obter assistência.");
+			clienteLogado = null;
+		}
+		
 	}
 
 	public void encontrarPosicaoPessoaPorCPF() {
@@ -53,15 +68,21 @@ public class menuDeControle {
 		escolha = escolha - 1;
 
 		if (escolha >= 0 && escolha < clienteLogado.getContaCorrente().size()) {
-			visualizarSaldo(escolha);
+			visualizarSaldo();
 		} else {
 			System.out.println("Opção inválida.");
 		}
 	}
 
-	public void visualizarSaldo(int indiceConta) {
-		double saldo = clienteLogado.getContaCorrente().get(indiceConta).getSaldo();
-		System.out.println("Saldo da conta selecionada: R$" + saldo);
+	public void visualizarSaldo() {
+		double saldo = clienteLogado.getContaCorrente().get(0).getSaldo();
+		System.out.println("Saldo da conta: R$" + saldo);
+	}
+	
+	public void visualizarFaturaCartaoCredito() {
+	    double fatura = clienteLogado.getCartaoCredito().get(0).getFatura();
+	    System.out.println("Fatura do cartão de crédito:");
+	    System.out.println("Valor total: R$" + fatura);
 	}
 
 	public void depositar() {
@@ -150,12 +171,14 @@ public class menuDeControle {
 			clienteLogado.getContaCorrente().get(0).retiradaSaldo(compraCliente);
 		} else {
 			System.out.println("Pagamento por crédito selecionado.");
-			
+
 			double limiteDoCliente = clienteLogado.getCartaoCredito().get(0).getLimiteCartaoCredito();
 			clienteLogado.getCartaoCredito().get(0).setLimiteCartaoCredito(limiteDoCliente - compraCliente);
-			
+
 			double faturaDoCliente = clienteLogado.getCartaoCredito().get(0).getFatura();
 			clienteLogado.getCartaoCredito().get(0).setFatura(compraCliente + faturaDoCliente);
+
+			taxaDeUtilizacaoDeLimite();
 		}
 
 		if (metodoPagamento == 1) {
@@ -165,9 +188,17 @@ public class menuDeControle {
 			System.out.println("Pagamento por crédito realizado com sucesso.");
 		}
 	}
-	
+
 	public void taxaDeUtilizacaoDeLimite() {
-		
+		double taxa = clienteLogado.getCartaoCredito().get(0).calcularTaxaDeUtilizacao();
+		DecimalFormat df = new DecimalFormat("#.##");
+		String taxaFormatada = df.format(taxa);
+
+		if (taxa > 0) {
+			System.out.println("Taxa de utilização do limite aplicada: R$" + taxaFormatada);
+		} else {
+			System.out.println("Você não excedeu 80% do limite de crédito neste mês. Nenhuma taxa aplicada.");
+		}
 	}
 
 	public void sairSalvar() {

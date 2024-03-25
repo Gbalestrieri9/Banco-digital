@@ -31,24 +31,6 @@ public class AberturaDeConta {
     public void cadastrarClienteEConta() {
         try {
         	System.out.println("Cadastro de Cliente e Conta");
-//            System.out.println("Coloque seu CPF:");
-//            String cpf = input.next();
-//            
-//            System.out.println("Coloque seu nome:");
-//            String nome = input.next();
-//            
-//            input.nextLine();
-//            
-//            System.out.println("Coloque sua data de nascimento (dd/MM/yyyy):");
-//            String data = input.nextLine();
-//            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-//            Date dataNascimento;
-//            try {
-//                dataNascimento = formato.parse(data);
-//            } catch (ParseException e) {
-//                System.out.println("Formato de data inválido. Cadastro não realizado.");
-//                return;
-//            }
         	
         	 String cpf = lerCPF();
              if (cpf == null || !validarCPF(cpf)) {
@@ -71,14 +53,14 @@ public class AberturaDeConta {
              System.out.println("Coloque seu endereço Deve incluir Rua, numero, complemento(se näo ouver coloque NA), cidade, estado, CEP(XXXXX-XXX):");
              input.nextLine();
              String endereco = input.nextLine();
-//             try {
-//                 validarEndereco(endereco);
-//                 
-//             } catch (IllegalArgumentException e) {
-//                 System.out.println("O endereço não é válido. O programa será encerrado.");
-//                
-//                 return;
-//             }
+             try {
+                 validarEndereco(endereco);
+                 
+             } catch (IllegalArgumentException e) {
+                 System.out.println("O endereço não é válido. O programa será encerrado.");
+                
+                 return;
+             }
 
             Cliente novoCliente = new Cliente(cpf, nome, dataNascimento, endereco);
             
@@ -134,7 +116,13 @@ public class AberturaDeConta {
             CartaoDeCredito novoCartaoCredito = new CartaoDeCredito(limiteCartaoCreditoInicial,vereficaRespostaCartao(cartaoCredito));
             novoCliente.getCartaoCredito().add(novoCartaoCredito);
             
-            ProdutosSeguro produtosSeguro = new ProdutosSeguro(categoriaConta);
+            System.out.println("Você deseja contratar a apolice de seguro viagem? (sim ou não)");
+            String apoliceViagem = input.next();
+            if(apoliceViagem.equals("sim")) {
+            	System.out.println("\n A apólice será ativada somente após o recebimento do primeiro pagamento proveniente da conta corrente.\n");
+            }
+            
+            ProdutosSeguro produtosSeguro = new ProdutosSeguro(categoriaConta,vereficaRespostaCartao(apoliceViagem));
             novoCliente.setProdutosSeguros(produtosSeguro);
             
             clientes.add(novoCliente);
@@ -197,7 +185,7 @@ public class AberturaDeConta {
     public Cliente fazerLogin(String cpf, String senha) {
         for (Cliente cliente : clientes) {
             if (cliente.getCpf().equals(cpf) && cliente.getConta().get(0).getSenha().equals(senha)) {
-            	System.out.println("Seja Bem-vindo " + cliente.getNome() );
+            	System.out.println("\nSeja Bem-vindo " + cliente.getNome() + "\n");
             	return cliente;
             }
         }
@@ -285,21 +273,21 @@ public class AberturaDeConta {
        return maiorDeIdade;
    }
    
-//   public static void validarEndereco(String endereco) {
-//       String[] partes = endereco.split("\\s*, \\s*");
-//
-//       if (partes.length != 6) {
-//           throw new IllegalArgumentException("O endereço deve conter rua, número, complemento, cidade, estado e CEP.");
-//       }
-//
-//       String cep = partes[5].trim();
-//       if (!cep.matches("\\d{5}-\\d{3}")) {
-//           throw new IllegalArgumentException("Formato de CEP inválido. Deve estar no formato XXXXX-XXX.");
-//       }
-//       for (String parte : partes) {
-//           if (parte.isEmpty()) {
-//               throw new IllegalArgumentException("Todas as partes do endereço devem ser preenchidas.");
-//           }
-//       }
-//   }
+   public static void validarEndereco(String endereco) {
+       String[] partes = endereco.split("\\s*,\\s*");
+
+       if (partes.length != 6) {
+           throw new IllegalArgumentException("O endereço deve conter rua, número, complemento, cidade, estado e CEP.");
+       }
+
+       String cep = partes[5].trim();
+       if (!cep.matches("\\d{5}-\\d{3}")) {
+           throw new IllegalArgumentException("Formato de CEP inválido. Deve estar no formato XXXXX-XXX.");
+       }
+       for (String parte : partes) {
+           if (parte.isEmpty()) {
+               throw new IllegalArgumentException("Todas as partes do endereço devem ser preenchidas.");
+           }
+       }
+   }
 }

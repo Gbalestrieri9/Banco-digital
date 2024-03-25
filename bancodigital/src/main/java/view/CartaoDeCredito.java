@@ -1,21 +1,20 @@
 package view;
 
 public class CartaoDeCredito {
-	
+
 	private double limiteCartaoCredito;
 	private boolean clienteTemCartaoCredito;
 	private Cliente cliente;
 	private double fatura;
 	private double limiteContratado;
-	
+
 	public CartaoDeCredito(double limiteCartaoCredito, boolean clienteTemCartaoCredito) {
 		this.limiteCartaoCredito = limiteCartaoCredito;
 		this.limiteContratado = limiteCartaoCredito;
 		this.clienteTemCartaoCredito = clienteTemCartaoCredito;
 		this.fatura = 0;
-		if(!this.clienteTemCartaoCredito) {
+		if (!this.clienteTemCartaoCredito) {
 			clienteNaoOptouPorCartaoCredito();
-			
 		}
 	}
 
@@ -34,7 +33,7 @@ public class CartaoDeCredito {
 	public void setClienteTemCartaoCredito(boolean clienteTemCartaoCredito) {
 		this.clienteTemCartaoCredito = clienteTemCartaoCredito;
 	}
-	
+
 	public void clienteNaoOptouPorCartaoCredito() {
 		this.limiteCartaoCredito = 0;
 	}
@@ -61,5 +60,15 @@ public class CartaoDeCredito {
 
 	public void setLimiteContratado(double limiteContratado) {
 		this.limiteContratado = limiteContratado;
+	}
+
+	public double calcularTaxaDeUtilizacao() {
+		double percentUtilizado = (fatura / limiteContratado) * 100;
+
+		if (percentUtilizado >= 80) {
+			return 0.05 * fatura;
+		} else {
+			return 0;
+		}
 	}
 }

@@ -13,13 +13,15 @@ public class Cliente {
 	private List<Conta> conta = new ArrayList<>();
 	private List<ContaCorrente> contaCorrente = new ArrayList<>();
 	private List<CartaoDeCredito> cartaoCredito = new ArrayList<>();
-	private ProdutosSeguro produtosSeguros = new ProdutosSeguro("");
+	private ProdutosSeguro produtosSeguros = new ProdutosSeguro("", false);
+	private double taxaUtilizacaoLimite;
 	
 	public Cliente(String cpf, String nome, Date dataNascimento, String endereco) {
 		this.cpf = cpf;
 		this.nome = nome;
 		this.dataNascimento = dataNascimento;
 		this.endereco = endereco;
+		this.taxaUtilizacaoLimite = 0;
 	}
 
 	public String getCpf() {
@@ -84,5 +86,13 @@ public class Cliente {
 
 	public void setProdutosSeguros(ProdutosSeguro produtosSeguros) {
 		this.produtosSeguros = produtosSeguros;
+	}
+
+	public double getTaxaUtilizacaoLimite() {
+		return taxaUtilizacaoLimite;
+	}
+
+	public void setTaxaUtilizacaoLimite(double taxaUtilizacaoLimite) {
+		this.taxaUtilizacaoLimite = taxaUtilizacaoLimite;
 	}
 }

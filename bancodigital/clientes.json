@@ -23,9 +23,11 @@
       {
         "limiteCartaoCredito": 10000.0,
         "clienteTemCartaoCredito": true,
-        "fatura": 0.0
+        "fatura": 0.0,
+        "limiteContratado": 0.0
       }
-    ]
+    ],
+    "taxaUtilizacaoLimite": 0.0
   },
   {
     "cpf": "222.222.222-22",
@@ -51,9 +53,11 @@
       {
         "limiteCartaoCredito": 5000.0,
         "clienteTemCartaoCredito": true,
-        "fatura": 0.0
+        "fatura": 0.0,
+        "limiteContratado": 0.0
       }
-    ]
+    ],
+    "taxaUtilizacaoLimite": 0.0
   },
   {
     "cpf": "333.333.333-33",
@@ -79,14 +83,15 @@
       {
         "limiteCartaoCredito": 1000.0,
         "clienteTemCartaoCredito": true,
-        "fatura": 0.0
+        "fatura": 0.0,
+        "limiteContratado": 0.0
       }
     ],
     "produtosSeguros": {
-      "apolice": "apolice1",
       "seguroViagem": 50,
       "seguroFraude": 5000
-    }
+    },
+    "taxaUtilizacaoLimite": 0.0
   },
   {
     "cpf": "444.444.444-44",
@@ -112,14 +117,15 @@
       {
         "limiteCartaoCredito": 10000.0,
         "clienteTemCartaoCredito": true,
-        "fatura": 0.0
+        "fatura": 0.0,
+        "limiteContratado": 0.0
       }
     ],
     "produtosSeguros": {
-      "apolice": "apolice1",
       "seguroViagem": 50,
       "seguroFraude": 5000
-    }
+    },
+    "taxaUtilizacaoLimite": 0.0
   },
   {
     "cpf": "555.555.555-55",
@@ -145,14 +151,15 @@
       {
         "limiteCartaoCredito": 10000.0,
         "clienteTemCartaoCredito": true,
-        "fatura": 0.0
+        "fatura": 0.0,
+        "limiteContratado": 0.0
       }
     ],
     "produtosSeguros": {
-      "apolice": "apolice1",
       "seguroViagem": 50,
       "seguroFraude": 5000
-    }
+    },
+    "taxaUtilizacaoLimite": 0.0
   },
   {
     "cpf": "666.666.666-66",
@@ -178,14 +185,15 @@
       {
         "limiteCartaoCredito": 10000.0,
         "clienteTemCartaoCredito": true,
-        "fatura": 0.0
+        "fatura": 0.0,
+        "limiteContratado": 0.0
       }
     ],
     "produtosSeguros": {
-      "apolice": "apolice1",
       "seguroViagem": 0,
       "seguroFraude": 5000
-    }
+    },
+    "taxaUtilizacaoLimite": 0.0
   },
   {
     "cpf": "777.777.777-77",
@@ -211,13 +219,159 @@
       {
         "limiteCartaoCredito": 4900.0,
         "clienteTemCartaoCredito": true,
-        "fatura": 100.0
+        "fatura": 100.0,
+        "limiteContratado": 0.0
       }
     ],
     "produtosSeguros": {
-      "apolice": "apolice1",
       "seguroViagem": 50,
       "seguroFraude": 5000
-    }
+    },
+    "taxaUtilizacaoLimite": 0.0
+  },
+  {
+    "cpf": "888.888.888-88",
+    "nome": "amanda",
+    "dataNascimento": "Oct 14, 1998, 12:00:00 AM",
+    "endereco": "rua teste",
+    "conta": [
+      {
+        "tipoConta": "corrente",
+        "senha": "senha888",
+        "categoriaConta": "comum",
+        "contaAtivada": true
+      }
+    ],
+    "contaCorrente": [
+      {
+        "saldo": 0.0,
+        "cartaoDebito": true,
+        "limiteTransacoes": 5
+      }
+    ],
+    "cartaoCredito": [
+      {
+        "limiteCartaoCredito": 199.0,
+        "clienteTemCartaoCredito": true,
+        "fatura": 801.0,
+        "limiteContratado": 1000.0
+      }
+    ],
+    "produtosSeguros": {
+      "seguroViagem": 50,
+      "seguroFraude": 5000
+    },
+    "taxaUtilizacaoLimite": 0.0
+  },
+  {
+    "cpf": "999.999.999-99",
+    "nome": "julio",
+    "dataNascimento": "Jan 11, 1987, 12:00:00 AM",
+    "endereco": "rua chaves",
+    "conta": [
+      {
+        "tipoConta": "corrente",
+        "senha": "senha999",
+        "categoriaConta": "comum",
+        "contaAtivada": true
+      }
+    ],
+    "contaCorrente": [
+      {
+        "saldo": 0.0,
+        "cartaoDebito": true,
+        "limiteTransacoes": 5
+      }
+    ],
+    "cartaoCredito": [
+      {
+        "limiteCartaoCredito": 1000.0,
+        "clienteTemCartaoCredito": true,
+        "fatura": 0.0,
+        "limiteContratado": 1000.0
+      }
+    ],
+    "produtosSeguros": {
+      "seguroViagem": 50,
+      "seguroFraude": 5000,
+      "numeroApoliceSeguroViagem": "77169731",
+      "numeroApoliceSeguroFraude": "30479898",
+      "dataContratacao": "Mar 25, 2024, 6:27:34 PM"
+    },
+    "taxaUtilizacaoLimite": 0.0
+  },
+  {
+    "cpf": "123.123.123-12",
+    "nome": "chaves",
+    "dataNascimento": "Feb 14, 1998, 12:00:00 AM",
+    "endereco": "rua florinda",
+    "conta": [
+      {
+        "tipoConta": "corrente",
+        "senha": "senha123",
+        "categoriaConta": "comum",
+        "contaAtivada": true
+      }
+    ],
+    "contaCorrente": [
+      {
+        "saldo": 0.0,
+        "cartaoDebito": true,
+        "limiteTransacoes": 5
+      }
+    ],
+    "cartaoCredito": [
+      {
+        "limiteCartaoCredito": 1000.0,
+        "clienteTemCartaoCredito": true,
+        "fatura": 0.0,
+        "limiteContratado": 1000.0
+      }
+    ],
+    "produtosSeguros": {
+      "seguroViagem": 0,
+      "seguroFraude": 5000,
+      "numeroApoliceSeguroViagem": "95230564",
+      "numeroApoliceSeguroFraude": "72141354",
+      "dataContratacao": "Mar 25, 2024, 6:39:54 PM"
+    },
+    "taxaUtilizacaoLimite": 0.0
+  },
+  {
+    "cpf": "321.321.321-32",
+    "nome": "teste",
+    "dataNascimento": "May 12, 1992, 12:00:00 AM",
+    "endereco": "rua testes",
+    "conta": [
+      {
+        "tipoConta": "corrente",
+        "senha": "senha321",
+        "categoriaConta": "comum",
+        "contaAtivada": false
+      }
+    ],
+    "contaCorrente": [
+      {
+        "saldo": 0.0,
+        "cartaoDebito": true,
+        "limiteTransacoes": 5
+      }
+    ],
+    "cartaoCredito": [
+      {
+        "limiteCartaoCredito": 1000.0,
+        "clienteTemCartaoCredito": true,
+        "fatura": 0.0,
+        "limiteContratado": 1000.0
+      }
+    ],
+    "produtosSeguros": {
+      "seguroViagem": 50,
+      "seguroFraude": 5000,
+      "numeroApoliceSeguroViagem": "49069670",
+      "numeroApoliceSeguroFraude": "57210456",
+      "dataContratacao": "Mar 25, 2024, 6:41:35 PM"
+    },
+    "taxaUtilizacaoLimite": 0.0
   }
 ]

@@ -16,7 +16,7 @@ public class Main {
                 
         while(executando) {
             try {
-                System.out.println("---MENU DE CONTROLE---\n"
+                System.out.println("\n---MENU DE CONTROLE---\n"
                         + "1.Se cadastre\n"
                         + "2.Acessar conta\n"
                         + "3.Visualize seu saldo\n"
